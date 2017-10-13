@@ -1,6 +1,9 @@
  #Defining Variables
 
 # Tu solucion abajo
+first_name = "nicolas"
+last_name = "rodirguez"
+age = 25
 
 
 # Pruebas NO LAS BORRES

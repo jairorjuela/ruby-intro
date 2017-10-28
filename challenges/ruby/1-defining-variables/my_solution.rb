@@ -5,6 +5,8 @@ first_name = "nicolas"
 last_name = "rodirguez"
 age = 25
 
+first_name = 'local-variable'
+
 
 # Pruebas NO LAS BORRES
 

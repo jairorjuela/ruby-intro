@@ -1,28 +1,58 @@
+#cada tres años dan naranjas y viven 25 años
 # Esta es la forma en que se crean errores personalizados
 class NoOrangesError < StandardError
 end
 
 class OrangeTree
+  attr_accessor :age, :dead, :height, :oranges
+  def initialize
+    @age = 0
+    @dead = false
+    @height = 1
+    @oranges = [ ]
+  end
   # Envejeze el arbol
   def age!
+    @age += 1
+    @height += 1
+    if @age >= 3 && @age <= 25
+       @oranges << Orange.new(rand(20) + 1)
+    end
+  end
+
+  def height
+    @height
+  end
+
+  def  dead?
+    if @age > 25
+       @dead = true
+    end
   end
 
   # Devuelve true si hay naranjas en el arbol, false si no
   def any_oranges?
+    if @oranges.any?
+      true
+    else
+      false
+    end
   end
 
   # Devuelve una naranja si hay una
   # Dispara un NoOrangesError de lo contrario
   def pick_an_orange!
     raise NoOrangesError, "This tree has no oranges" unless self.any_oranges?
-
     # Logica para sacar naranjas va aca
+    @oranges.pop(rand(0..20)
   end
 end
 
 class Orange
   # Crea una naranja con determinado +diameter+
+  attr_accessor :diameter
   def initialize(diameter)
+      @diameter = diameter
   end
 end
 
@@ -31,9 +61,9 @@ end
 
 tree = OrangeTree.new
 
-tree.age! until tree.any_oranges?
+ tree.age! until tree.any_oranges?
 
-puts "El arbol tiene #{tree.age} años y mide #{tree.height} metros"
+ puts "El arbol tiene #{tree.age} años y mide #{tree.height} metros"
 
 until tree.dead?
   basket = []
@@ -57,4 +87,3 @@ until tree.dead?
 end
 
 puts "Miercoles, se murio el arbol!"
-

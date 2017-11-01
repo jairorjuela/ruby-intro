@@ -100,13 +100,14 @@ Ejecuta estos comandos en serie:
 
   Aveces queremos instanciar el objeto y guardarlo en la base de datos al mismo tiempo. Para eso esta `::create`.
 
-  `::create` va a crear el objeto, assignar atributos, e intentar guardar el registro en la base de datos. Mientras que `#save` devuelve true/false, `::create` es mas sutil. `::create` siempre va a devolver el objeto instanciado. Si el `save` fue exitoso el objeto tendrá un valor para el atributo `id`, si no fue exitoso el valor del `id` sera `nil`.
+  `::create` va a crear el objeto, assignar atributos, e intentar guardar el registro en la base de datos. Mientras que `#save` devuelve true
+  /false, `::create` es mas sutil. `::create` siempre va a devolver el objeto instanciado. Si el `save` fue exitoso el objeto tendrá un valor para el atributo `id`, si no fue exitoso el valor del `id` sera `nil`.
 
 - `Dog.count`
 
   Ahora tenemos 5 perros.
 
-- `Dog.create [{name: "Toot"}, {name: "Cosmo"}]`
+- (`Dog.create [{name: "Toot"}, {name: "Cosmo"}]`)
 
   Si pasamos un array a create podemos crear muchos perros al tiempo.
 
